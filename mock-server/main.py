@@ -5,9 +5,8 @@ import requests
 
 app = Flask(__name__)
 
-API_URL = "https://openrouter.ai/api/v1/chat/completions"
-API_KEY = "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"  # ← замени на свой ключ
-
+# API_URL = "https://openrouter.ai/api/v1/chat/completions"
+# API_KEY = ""  # ← замени на свой ключ
 
 @app.after_request
 def add_cache_headers(response):
