@@ -1,0 +1,18 @@
+{
+  "api_proxy_error": {
+    "ru": "<span style=\"color:#c00\">Ошибка API:</span> Не удалось подключиться к API через прокси. Подробности в логе сервера.",
+    "en": "<span style=\"color:#c00\">API Error:</span> Failed to connect to the API via proxy. Check the server logs for details.",
+    "de": "<span style=\"color:#c00\">API-Fehler:</span> Verbindung zum API über Proxy fehlgeschlagen. Details im Server-Log.",
+    "fr": "<span style=\"color:#c00\">Erreur API :</span> Échec de la connexion à l’API via le proxy. Détails dans les journaux du serveur.",
+    "es": "<span style=\"color:#c00\">Error de API:</span> No se pudo conectar a la API a través del proxy. Consulta los registros del servidor.",
+    "pt": "<span style=\"color:#c00\">Erro da API:</span> Falha ao conectar à API através do proxy. Verifique os logs do servidor.",
+    "it": "<span style=\"color:#c00\">Errore API:</span> Impossibile connettersi all'API tramite proxy. Vedi i log del server.",
+    "pl": "<span style=\"color:#c00\">Błąd API:</span> Nie udało się połączyć z API przez proxy. Szczegóły w logach serwera.",
+    "uk": "<span style=\"color:#c00\">Помилка API:</span> Не вдалося підключитися до API через проксі. Деталі в логах сервера.",
+    "tr": "<span style=\"color:#c00\">API Hatası:</span> Proxy üzerinden API'ye bağlanılamadı. Ayrıntılar sunucu günlüğünde.",
+    "ja": "<span style=\"color:#c00\">APIエラー:</span> プロキシ経由でAPIに接続できませんでした。詳細はサーバーログを確認してください。",
+    "ko": "<span style=\"color:#c00\">API 오류:</span> 프록시를 통해 API에 연결하지 못했습니다. 서버 로그에서 자세한 내용을 확인하세요.",
+    "zh": "<span style=\"color:#c00\">API错误：</span> 无法通过代理连接到API。请查看服务器日志以获取详细信息。",
+    "ar": "<span style=\"color:#c00\">خطأ في واجهة API:</span> فشل الاتصال بواجهة API عبر البروكسي. راجع سجل الخادم للتفاصيل."
+  }
+}

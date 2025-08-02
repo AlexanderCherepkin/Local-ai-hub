@@ -1,0 +1,42 @@
+{
+  "id": "/index.html",
+  "name": "Local AI Hub",
+  "short_name": "AI Hub",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "orientation": "portrait",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/favicon/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  
+  "screenshots": [
+  {
+    "src": "/screenshots/aihub-splash1.webp",
+    "sizes": "1280x720",
+    "type": "image/webp",
+    "form_factor": "wide"
+  },
+  {
+    "src": "/screenshots/aihub-splash2.webp",
+    "sizes": "720x1280",
+    "type": "image/webp",
+    "form_factor": "narrow"
+  }
+]
+}
+
+

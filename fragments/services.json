@@ -1,0 +1,26 @@
+[
+  {
+    "icon": "images/icons/ai-tools.svg",
+    "alt": "AI-решения",
+    "title_key": "service_ai_title",
+    "desc_key": "service_ai_desc",
+    "title": "AI-решения",
+    "description": "Автоматизация задач, анализ продаж, чат-боты"
+  },
+  {
+    "icon": "images/icons/automation.svg",
+    "alt": "Автоматизация",
+    "title_key": "service_auto_title",
+    "desc_key": "service_auto_desc",
+    "title": "Автоматизация",
+    "description": "Оптимизация логистики и обработки заказов"
+  },
+  {
+    "icon": "images/icons/education.svg",
+    "alt": "Обучение",
+    "title_key": "service_edu_title",
+    "desc_key": "service_edu_desc",
+    "title": "Обучение",
+    "description": "Пошаговые гайды, видео и инструкции"
+  }
+]

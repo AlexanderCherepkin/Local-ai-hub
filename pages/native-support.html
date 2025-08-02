@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+
+  <!-- SEO -->
+  <meta name="description" content="Платформа Local AI Hub говорит на вашем языке. Наслаждайтесь поддержкой, интерфейсом и сервисами на родном языке.">
+  <meta name="keywords" content="локализация, поддержка, родной язык, мультиязычность, AI, переводы, языковая поддержка">
+  <meta name="author" content="Local AI Hub">
+  <link rel="canonical" href="https://local-ai-hub.website/pages/support.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Поддержка на родном языке — Local AI Hub">
+  <meta property="og:description" content="Локализованные интерфейсы и консультации на вашем языке. Мы говорим с вами понятно.">
+  <meta property="og:url" content="https://local-ai-hub.website/pages/native-support.html">
+  <meta property="og:image" content="https://local-ai-hub.website/images/og-tegs/og-native-support.jpg">
+  <meta property="og:site_name" content="Local AI Hub">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Поддержка на родном языке — Local AI Hub">
+  <meta name="twitter:description" content="Интерфейсы и консультации на вашем языке. Глобальный AI с локальным подходом.">
+  <meta name="twitter:image" content="https://local-ai-hub.website/images/og-tegs/og-native-support.jpg">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="native-support.title">Поддержка на родном языке</title>
+
+     <!--🌐 Fonts -->
+<link rel="preload" href="/fonts/Manrope-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/Manrope-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/Manrope-ExtraBold.woff2" as="font" type="font/woff2" crossorigin>
+
+<style>
+  @font-face {
+    font-family: 'Manrope';
+    src: url('/fonts/Manrope-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Manrope';
+    src: url('/fonts/Manrope-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Manrope';
+    src: url('/fonts/Manrope-ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-display: swap;
+  }
+</style>
+
+  <link rel="stylesheet" href="../css/pages/reset.css" />
+  <link rel="stylesheet" href="../css/style.min.css" />
+  <link rel="stylesheet" href="../css/header.min.css" />
+  <link rel="stylesheet" href="../css/style-adaptyve.min.css" />
+  <link rel="stylesheet" href="/css/pages/start.css" />
+  <link rel="stylesheet" href="../css/pages/start-fix.css" />
+  <link rel="stylesheet" href="../css/pages/native-support.css" />
+  <link rel="stylesheet" href="../css/pages/modal.css" />
+  <link rel="stylesheet" href="/css/lib/aos.min.css" />
+
+  
+</head>
+
+<body>
+  <div id="header-container"></div>
+
+  <main class="support-main container">
+    <section class="content-section fade-in-on-scroll" data-aos="fade-up">
+      <h1 data-i18n="native-support.title">Поддержка на родном языке</h1>
+      <p data-i18n="native-support.desc">Локализованные интерфейсы, помощь и консультации на вашем языке.</p>
+    </section>
+
+    <section class="support-cards fade-in-on-scroll" data-aos="fade-up">
+      <div class="support-card" onclick="openSupportModal('faq')">
+        <span class="emoji lottie" data-lottie="../lottie/question.json"></span>
+        <h2 data-i18n="native-support.faq">Частые вопросы</h2>
+        <p data-i18n="native-support.faq-desc">Ответы на популярные вопросы по платформе.</p>
+      </div>
+      <div class="support-card" onclick="openSupportModal('form')">
+        <span class="emoji lottie" data-lottie="../lottie/feedback.json"></span>
+        <h2 data-i18n="native-support.feedback">Обратная связь</h2>
+        <p data-i18n="native-support.feedback-desc">Форма для связи с нашей командой поддержки.</p>
+      </div>
+      <div class="support-card" onclick="openSupportModal('chat')">
+        <span class="emoji lottie" data-lottie="../lottie/chats.json"></span>
+        <h2 data-i18n="native-support.chat">AI-чат</h2>
+        <p data-i18n="native-support.chat-desc">Получите моментальную помощь от умного помощника.</p>
+      </div>
+    </section>
+
+    <div id="support-modal-container"></div>
+  </main>
+
+  <div id="footer-container"></div>
+
+     
+       <!-- Скрипты -->
+    <script src="/js/lib/aos.min.js"></script>
+    <script src="/js/lib/gsap.min.js"></script>
+    <script src="/js/lib/ScrollTrigger.min.js"></script>
+    <script src="/js/lib/lottie.min.js"></script>
+    
+    <script src="../js/pages/inject-layout.js"></script>
+    <script src="/lang/language.js"></script>
+    <script src="../js/pages/native-support.js"></script>
+    <script src="../js/pages/modal.js"></script>
+    
+    <script>
+      // Инициализация AOS после полной загрузки
+      AOS.init({ duration: 800, once: true });
+    
+      const lang = new URLSearchParams(window.location.search).get("lang") || "ru";
+      localizePage(lang);
+    
+      // Обработчик data-action для показа секций
+      document.querySelectorAll('[data-action="details"]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetId = btn.dataset.target;
+          const modal = document.querySelector('.modal.open');
+          if (modal) modal.classList.remove('open');
+    
+          const section = document.getElementById(targetId);
+          section.classList.remove('hidden');
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+    </script>
+
+</body>
+</html>

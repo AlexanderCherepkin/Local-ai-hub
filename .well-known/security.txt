@@ -1,0 +1,17 @@
+# Contact Info for Vulnerability Disclosure
+
+Contact: mailto:security@local-ai-hub.website
+Expires: 2025-12-31T23:59:59.000Z
+Preferred-Languages: en, ru
+Policy: https://local-ai-hub.website/security-policy.html
+Hiring: https://local-ai-hub.website/careers
+Canonical: https://local-ai-hub.website/.well-known/security.txt
+
+# https://www.rfc-editor.org/rfc/rfc9116
+
+Contact: mailto:security@local-ai-hub.website
+Expires: 2025-12-31T23:59:59.000Z
+Preferred-Languages: en, ru
+Policy: https://local-ai-hub.website/security-policy.html
+Hiring: https://local-ai-hub.website/careers
+Canonical: https://local-ai-hub.website/.well-known/security.txt

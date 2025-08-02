@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>AI Чат</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; }
+    textarea { width: 100%; height: 100px; margin-bottom: 1rem; }
+    button { padding: 0.5rem 1rem; }
+    pre { background: #f4f4f4; padding: 1rem; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+
+  <h1>Простой AI-чекер</h1>
+
+  <textarea id="userMessage" placeholder="Введите сообщение..."></textarea>
+  <button onclick="sendMessage()">Отправить</button>
+
+  <pre id="responseBox">Ответ появится здесь...</pre>
+
+  <script>
+    function sendMessage() {
+      const message = document.getElementById("userMessage").value.trim();
+      const responseBox = document.getElementById("responseBox");
+
+      if (!message) {
+        responseBox.textContent = "❗ Введите сообщение.";
+        return;
+      }
+
+      fetch("chat.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.error) {
+          responseBox.textContent = "❌ Ошибка: " + data.error.message;
+        } else {
+          responseBox.textContent = "✅ Ответ: " + JSON.stringify(data, null, 2);
+        }
+      })
+      .catch(err => {
+        responseBox.textContent = "🚫 Сбой запроса: " + err.message;
+      });
+    }
+  </script>
+
+</body>
+</html>

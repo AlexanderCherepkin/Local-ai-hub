@@ -1,0 +1,92 @@
+<header  class="header-row" style="position: relative; min-height: 60px; max-width: 1700px; background-color: #f5f5f5; border-top-left-radius: 2rem; border-top-right-radius: 2rem;">
+  <div class="header-row" style="display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 1.5rem; flex-wrap: wrap; gap: 2rem;">
+    <a href="../index.html" class="logo" aria-label="Local AI Hub — Главная" style="flex-shrink: 0;">
+      <svg width="100" height="100" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+        <circle cx="44" cy="44" r="36" stroke="#00cbe6" stroke-width="2" />
+        <circle cx="44" cy="44" r="28" stroke="#2c7be5" stroke-width="3" />
+        <path d="M20 52 Q44 24 68 52" stroke="#00cbe6" stroke-width="3" stroke-linecap="round"
+              stroke-dasharray="6 7">
+          <animate attributeName="stroke-dashoffset" values="0;26" dur="1.6s" repeatCount="indefinite" />
+        </path>
+        <circle cx="44" cy="44" r="13" fill="#fff" />
+        <circle cx="44" cy="44" r="8" fill="#00cbe6" />
+        <circle cx="44" cy="44" r="5" fill="#2c7be5">
+          <animate attributeName="r" values="5;8;5" dur="1.25s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="44" cy="16" r="3" fill="#00cbe6" />
+        <circle cx="44" cy="72" r="3" fill="#00cbe6" />
+        <circle cx="16" cy="44" r="3" fill="#00cbe6" />
+        <circle cx="72" cy="44" r="3" fill="#00cbe6" />
+        <g stroke="#fff" stroke-width="2">
+          <line x1="44" y1="16" x2="44" y2="31" />
+          <line x1="44" y1="57" x2="44" y2="72" />
+          <line x1="16" y1="44" x2="31" y2="44" />
+          <line x1="57" y1="44" x2="72" y2="44" />
+        </g>
+        <text x="50" y="85" text-anchor="middle" font-size="13" font-family="Arial,sans-serif"
+              fill="#2c7be5" font-weight="bold" letter-spacing="1.5">Local AI Hub</text>
+      </svg>
+    </a>
+
+    <div id="particles-js" class="hintergrund"></div>
+        <nav class="main-nav" role="navigation" aria-label="Главная навигация" style="display: flex; flex: 1; justify-content: center; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+          <a href="../index.html" class="hover-me ripple-btn" data-i18n="nav_home">Главная</a>
+          <a href="ai-solutions.html" class="hover-me ripple-btn" data-i18n="nav_solutions" target="_blank">AI-решения</a>
+          <a href="automation.html" class="hover-me ripple-btn" data-i18n="nav_automation" target="_blank">Автоматизация</a>
+          <a href="training.html" class="hover-me ripple-btn" data-i18n="nav_training" target="_blank">Обучение</a>
+          <a href="solutions.html" class="hover-me ripple-btn" data-i18n="nav_turnkey" target="_blank">Под ключ</a>
+          <a href="no-tech-skills.html" class="hover-me ripple-btn" data-i18n="nav_nocode" target="_blank">Без кода</a>
+          <a href="native-support.html" class="hover-me ripple-btn" data-i18n="nav_support" target="_blank">Поддержка</a>
+      </nav>
+      <a href="start.html" class="hover-me nav-cta ripple-btn" data-i18n="nav_start" style="flex-shrink: 0;" target="_blank">Начать</a>
+    </div>
+  
+<div class="lang-switch">
+  <button onclick="changeLanguage('ru')" data-flag="Русский">
+    <img src="https://flagcdn.com/16x12/ru.png" srcset="https://flagcdn.com/32x24/ru.png 2x, https://flagcdn.com/48x36/ru.png 3x" width="16" height="12" alt="Russian">
+  </button>
+  <button onclick="changeLanguage('en')" data-flag="English">
+    <img src="https://flagcdn.com/16x12/us.png" srcset="https://flagcdn.com/32x24/us.png 2x, https://flagcdn.com/48x36/us.png 3x" width="16" height="12" alt="English">
+  </button>
+  <button onclick="changeLanguage('es')" data-flag="Español">
+    <img src="https://flagcdn.com/16x12/es.png" srcset="https://flagcdn.com/32x24/es.png 2x, https://flagcdn.com/48x36/es.png 3x" width="16" height="12" alt="Spanish">
+  </button>
+  <button onclick="changeLanguage('de')" data-flag="Deutsch">
+    <img src="https://flagcdn.com/16x12/de.png" srcset="https://flagcdn.com/32x24/de.png 2x, https://flagcdn.com/48x36/de.png 3x" width="16" height="12" alt="German">
+  </button>
+  <button onclick="changeLanguage('fr')" data-flag="Français">
+    <img src="https://flagcdn.com/16x12/fr.png" srcset="https://flagcdn.com/32x24/fr.png 2x, https://flagcdn.com/48x36/fr.png 3x" width="16" height="12" alt="French">
+  </button>
+  <button onclick="changeLanguage('it')" data-flag="Italiano">
+    <img src="https://flagcdn.com/16x12/it.png" srcset="https://flagcdn.com/32x24/it.png 2x, https://flagcdn.com/48x36/it.png 3x" width="16" height="12" alt="Italian">
+  </button>
+  <button onclick="changeLanguage('pt')" data-flag="Português">
+    <img src="https://flagcdn.com/16x12/pt.png" srcset="https://flagcdn.com/32x24/pt.png 2x, https://flagcdn.com/48x36/pt.png 3x" width="16" height="12" alt="Portuguese">
+  </button>
+  <button onclick="changeLanguage('zh')" data-flag="中文">
+    <img src="https://flagcdn.com/16x12/cn.png" srcset="https://flagcdn.com/32x24/cn.png 2x, https://flagcdn.com/48x36/cn.png 3x" width="16" height="12" alt="Chinese">
+  </button>
+  <button onclick="changeLanguage('ja')" data-flag="日本語">
+    <img src="https://flagcdn.com/16x12/jp.png" srcset="https://flagcdn.com/32x24/jp.png 2x, https://flagcdn.com/48x36/jp.png 3x" width="16" height="12" alt="Japanese">
+  </button>
+  <button onclick="changeLanguage('ko')" data-flag="한국어">
+    <img src="https://flagcdn.com/16x12/kr.png" srcset="https://flagcdn.com/32x24/kr.png 2x, https://flagcdn.com/48x36/kr.png 3x" width="16" height="12" alt="Korean">
+  </button>
+  <button onclick="changeLanguage('ar')" data-flag="العربية">
+    <img src="https://flagcdn.com/16x12/sa.png" srcset="https://flagcdn.com/32x24/sa.png 2x, https://flagcdn.com/48x36/sa.png 3x" width="16" height="12" alt="Arabic">
+  </button>
+  <button onclick="changeLanguage('pl')" data-flag="Polski">
+    <img src="https://flagcdn.com/16x12/pl.png" srcset="https://flagcdn.com/32x24/pl.png 2x, https://flagcdn.com/48x36/pl.png 3x" width="16" height="12" alt="Polish">
+  </button>
+  <button onclick="changeLanguage('tr')" data-flag="Türkçe">
+    <img src="https://flagcdn.com/16x12/tr.png" srcset="https://flagcdn.com/32x24/tr.png 2x, https://flagcdn.com/48x36/tr.png 3x" width="16" height="12" alt="Turkish">
+  </button>
+  <button onclick="changeLanguage('uk')" data-flag="Українська">
+    <img src="https://flagcdn.com/16x12/ua.png" srcset="https://flagcdn.com/32x24/ua.png 2x, https://flagcdn.com/48x36/ua.png 3x" width="16" height="12" alt="Ukrainian">
+  </button>
+</div>
+
+
+
+
+</header>

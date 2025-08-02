@@ -1,0 +1,140 @@
+/* Стили для страницы Поддержка на родном языке */
+
+:root {
+  --bg-light: #f5f9fc;
+  --bg-dark: #10151c;
+  --card-bg-light: rgba(255, 255, 255, 0.35);
+  --card-bg-dark: rgba(255, 255, 255, 0.05);
+  --border-light: rgba(255, 255, 255, 0.4);
+  --border-dark: rgba(255, 255, 255, 0.1);
+  --text-light: #222;
+  --text-dark: #f1f1f1;
+  --accent: #00cbe6;
+}
+
+body[data-theme="light"] {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+
+body[data-theme="dark"] {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+main > section:first-of-type {
+    min-height: 0;
+    contain: layout paint;
+}
+
+
+.support-main {
+  padding: 4rem 1.5rem;
+}
+
+.content-section {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.content-section h1 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+}
+
+.content-section p {
+  font-size: 1rem;
+  font-weight: 600;
+  max-width: 610px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.support-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.support-card {
+  width: 280px;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-light);
+  background: var(--card-bg-light);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.07);
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+  position: relative;
+  margin-bottom: 3rem;
+}
+
+body[data-theme="dark"] .support-card {
+  background: var(--card-bg-dark);
+  border: 1px solid var(--border-dark);
+}
+
+.support-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+.support-card h2 {
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.support-card p {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.emoji {
+  font-size: 3rem;
+  display: inline-block;
+  
+}
+
+.support-card:hover {
+  transform: scale(1.15);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .support-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .support-card {
+    width: 100%;
+    max-width: 90vw;
+  }
+
+  .content-section h1 {
+    font-size: 2.2rem;
+  }
+
+  .content-section p {
+    font-size: 1.05rem;
+  }
+}
+
+/*Lottie */
+.emoji.lottie {
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 1rem auto;
+  transition: transform var(--transition);
+  pointer-events: none;
+}
+.emoji.lottie:hover {
+  transform: scale(1.15) rotate(10deg);
+}

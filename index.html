@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#121212" />
+  <meta name="color-scheme" content="dark light" />
+  <title data-i18n="meta_title">Local AI Hub — AI для бизнеса</title>
+  <meta name="description" content="Local AI Hub — платформа AI-решений для малого бизнеса" data-i18n="meta_description" />
+  <link rel="canonical" href="https://local-ai-hub.website/" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="manifest" href="/manifest.json" crossorigin="use-credentials" />
+  <link rel="preload" as="image" href="/images/content/hero-poster.webp" fetchpriority="high">
+
+  <link rel="preload" href="/images/content/hero-poster.webp" as="image" type="image/webp">
+  
+  <style>
+        :root,[data-theme=dark]{--bg:var(--color-bg);--text:var(--color-text);--accent:var(--color-primary);--accent-secondary:var(--color-secondary)}#theme-toggle,body{background-color:var(--bg)}#loader,*,.ai-test-result{box-sizing:border-box}#loader,.hero,.ripple{overflow:hidden}#loader,.ai-test-block h2,.cta,.hero-overlay,.section-title,.why-choose{text-align:center}body,footer{transition:background-color .3s,color .3s}:root{--color-primary:#2c7be5;--color-secondary:#00b894;--color-secondary-dark:#037968;--color-bg:#f5f5f5;--color-text:#333;--font-main:'Segoe UI','Roboto',Arial,sans-serif;--font-size-base:clamp(1rem, 0.98rem + 0.25vw, 1.2rem);--font-size-lg:clamp(1.25rem, 1.1rem + 1.5vw, 2.25rem);--font-size-xl:clamp(2rem, 1.7rem + 2vw, 3rem);--cta-bg:var(--color-secondary);--cta-text:#fff;--cta-btn-bg:#fff;--cta-btn-text:var(--color-secondary);--cta-btn-hover-bg:#f4f8f7;--cta-btn-hover-text:var(--color-secondary-dark);--cta-subtext:#eafaf8}[data-theme=dark]{--color-bg:#0f172a;--color-text:#e5e7eb;--color-primary:#00bcd4;--color-secondary:#ffcb05;--color-secondary-dark:#c98b05;--cta-bg:#0c3136;--cta-text:#e0f8f6;--cta-btn-bg:#232d3e;--cta-btn-text:#32dfc8;--cta-btn-hover-bg:#18222e;--cta-btn-hover-text:#53ffd2;--cta-subtext:#b1eae4}[data-theme=dark] a{color:#80caff}*{margin:0;padding:0}html{scroll-behavior:smooth}body{cursor:url('/images/cursor/cursor-blick.png') 20 20,auto;font-family:var(--font-main);color:var(--text);line-height:1.6}a{text-decoration:none;color:inherit}.container{max-width:1200px;margin:0 auto;padding:2rem 1rem}.hero{position:relative;height:100vh;width:100%;display:flex;align-items:center;justify-content:center}.hero-video{top:0;left:0;object-fit:cover;z-index:1!important;opacity:.9;animation:10s ease-in-out infinite alternate hero-fade}.hero-video-wrapper{position:absolute;top:0;left:0;width:100%;height:100%;overflow:hidden;z-index:-1}.hero-poster,.hero-video{width:100%;height:100%;object-fit:cover;display:block}.hero-video.fade-in{opacity:0;animation:1.2s forwards fadeInVideo}@keyframes fadeInVideo{to{opacity:1}}@keyframes hero-fade{0%{opacity:.8;transform:scale(1)}100%{opacity:1;transform:scale(1.03)}}.hero-overlay{z-index:2!important;padding:2rem}.hero-overlay .container{max-width:800px;margin:auto}.hero-subtitle,.hero-title,[data-theme=dark] .why-choose h2,[data-theme=dark] .why-choose p,[data-theme=dark] .why-rating p{color:#fff}#theme-toggle,.section-title,footer{color:var(--text)}.hero-overlay h1{font-size:2.5rem;font-weight:700;margin-bottom:1rem}.hero-title{opacity:1!important;transform:none!important;transition:none!important}.fade-in-on-scroll.visible,.hero-title.visible{opacity:1;transform:translateY(0)}.hero-overlay p{font-size:1.2rem;margin-bottom:2rem}.hero .stagger-item{opacity:0;transform:translateY(56px) scale(.98);transition:opacity .88s cubic-bezier(.33,1.01,.53,1),transform .88s cubic-bezier(.33,1.01,.53,1);will-change:opacity,transform}.hero.stagger-visible .stagger-item{opacity:1;transform:translateY(0) scale(1)}.hero.stagger-visible .stagger-item:first-child{transition-delay:0.12s}.hero.stagger-visible .stagger-item:nth-child(2){transition-delay:0.32s}.hero.stagger-visible .stagger-item:nth-child(3){transition-delay:0.52s}.hero::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,.5);z-index:0}.hero-overlay{position:relative}
+        header, nav, ul {
+          height: auto; /* или min-content */
+          overflow: visible;
+          position: relative;
+        }
+        
+        .mobile-menu {
+          max-height: 100vh;
+          overflow-y: auto;  
+        }
+
+        nav ul {
+          padding: 1rem 0;
+        }
+
+        .hero {
+          min-height: 100vh;
+          height: 100vh;
+          max-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+        }
+        
+        .hero-title {
+              font-size: 2.5rem;
+              line-height: 1.2;
+              font-weight: 700;
+              margin: 0 auto;
+            }
+            
+        .logo-wrapper,
+        .logo-reserved {
+          width: 150px;
+          height: 64px;
+          aspect-ratio: 150 / 64;
+          flex-shrink: 0;
+        }
+        .logo-svg {
+          width: 100%;
+          height: 100%;
+          display: block;
+        }
+
+        
+            /* Минимальная высота навигации */
+            .main-nav {
+              min-height: 50px;
+              white-space: nowrap;
+            }
+            
+            /* Затемнение фона */
+            .hero-dark-overlay {
+              position: absolute;
+              inset: 0;
+              background: rgba(0, 0, 0, 0.5); /* 50% затемнение */
+              z-index: 1;
+              pointer-events: none;
+            }
+            
+            /* Текст и CTA поверх */
+            .hero-overlay,
+            .hero-title,
+            .hero-subtitle,
+            .hero-text {
+              position: relative;
+              z-index: 2;
+              color: #fff;
+              text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6); /* усилим контраст */
+            }
+            
+            .hero-title {
+  font-size: 2.6rem;
+  font-weight: 700;
+  min-height: 3.2rem; /* зарезервировано место */
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+            
+            .hero-overlay .container {
+          min-height: 200px;
+          padding-top: 2rem;
+          padding-bottom: 2rem;
+        }
+
+            
+            /* Поддержка aspect-ratio */
+            img[decoding][loading][width][height] {
+              aspect-ratio: attr(width) / attr(height);
+              display: block;
+        }
+        
+        .logo-wrapper {
+  width: 120px;
+  height: 50px;
+  aspect-ratio: 120 / 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.logo-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+        
+    </style>
+
+  <!--🌐 Fonts -->
+<link rel="preload" href="/fonts/Manrope-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/Manrope-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/Manrope-ExtraBold.woff2" as="font" type="font/woff2" crossorigin>
+
+<style>
+  @font-face {
+    font-family: 'Manrope';
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/Manrope-Regular.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Manrope';
+    font-weight: 600;
+    font-display: swap;
+    src: url('/fonts/Manrope-SemiBold.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Manrope';
+    font-weight: 800;
+    font-display: swap;
+    src: url('/fonts/Manrope-ExtraBold.woff2') format('woff2');
+  }
+    html {
+      font-family: 'Manrope', sans-serif;
+    }
+  </style>
+
+   <!--🌙 Темная тема -->
+  <script>
+    try {
+      const saved = localStorage.getItem('theme');
+      const system = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      const theme = saved || system;
+      document.documentElement.setAttribute('data-theme', theme);
+      document.documentElement.classList.toggle('dark-theme', theme === 'dark');
+    } catch (e) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  </script>
+  
+   <link rel="stylesheet" href="/css/aos.min.css" media="print" onload="this.media='all'">
+   
+
+       <!--🎨 CSS (Минифицированные версии без дублирования) -->
+    <link rel="stylesheet" href="/css/main.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/css/style.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/css/nav-glass-theme.min.css">
+    <link rel="stylesheet" href="/css/footer.min.css">
+    <link rel="stylesheet" href="/css/icon-3d.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/css/variability.min.css">
+    <link rel="stylesheet" href="/css/header.min.css">
+    <link rel="stylesheet" href="/css/about.min.css">
+    <link rel="stylesheet" href="/css/demo.min.css">
+    <link rel="stylesheet" href="/css/modal.min.css">
+    <link rel="stylesheet" href="/css/feedback-modal.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/css/skeleton.min.css">
+    <link rel="stylesheet" href="/css/preloader.min.css">
+    <link rel="stylesheet" href="/css/animation.min.css">
+    <link rel="stylesheet" href="/css/style-adaptyve.min.css">
+    <link rel="stylesheet" href="/css/layout-fix.min.css">
+    <link rel="stylesheet" href="/css/other.min.css">
+   <!--Open Graph / Twitter -->
+  <meta property="og:title" content="Local AI Hub — AI для бизнеса" />
+  <meta property="og:description" content="Local AI Hub — платформа AI-решений для малого бизнеса" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://local-ai-hub.website/" />
+  <meta property="og:image" content="https://local-ai-hub.website/images/og-image.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Local AI Hub — AI для бизнеса" />
+  <meta name="twitter:description" content="Local AI Hub — платформа AI-решений для малого бизнеса" />
+  <meta name="twitter:image" content="https://local-ai-hub.website/images/og-image.webp" />
+
+   <!--JS-библиотеки -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js" defer crossorigin="anonymous"></script>
+
+   <!--Noscript fallback -->
+  <noscript>
+    <style>
+      .loader-screen { display: none; }
+      body::before {
+        content: "JavaScript отключён — включите его для отображения сайта.";
+        display: block;
+        background: #f44336;
+        color: white;
+        padding: 1rem;
+        font-size: 1rem;
+        text-align: center;
+      }
+    </style>
+  </noscript>
+ 
+</head>
+
+
+<body>
+    <!-- ✅ Фоновый canvas -->
+  <div id="particles-js" class="hintergrund"></div>
+
+    <canvas id="aiParticles" class="ai-bg-canvas"></canvas>
+    <a href="#main-content" class="skip-link">Перейти к содержимому</a>
+    <div id="global-spinner" style="display:none;">
+      <div class="spinner"></div>
+    </div>
+    <div id="fallback-notice"
+         data-i18n="fallback_notice"
+         style="display: none; color: red; font-size: 0.9em; text-align: center; margin-top: 1rem;">
+      Fallback language loaded
+    </div>
+
+    <div class="loader-screen" id="loader">
+      <p data-i18n="loading_text">Сайт загружается...</p>
+    </div>
+    
+<div id="feedback-overlay"
+     class="feedback-overlay"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="feedback-title"
+     tabindex="-1"
+     style="display: none;">
+  <div class="feedback-window" id="feedback-content">
+    <button class="feedback-close" id="feedback-close-btn" aria-label="Закрыть окно">&times;</button>
+    <button class="feedback-help" id="feedback-help-btn" aria-label="FAQ и поддержка">?</button>
+    <h2 class="feedback-title" id="feedback-title" data-i18n="feedback_title">Обратная связь</h2>
+    <p class="feedback-desc" id="feedback-desc" data-i18n="feedback_desc">Заполните форму — и получите быстрый ответ!</p>
+
+    <form id="feedback-form" autocomplete="off" novalidate>
+      <div class="feedback-field">
+        <label for="feedback-name" data-i18n="feedback_name_label">Имя</label>
+        <input type="text" id="feedback-name" name="name" data-i18n-placeholder="feedback_name_placeholder" placeholder="Ваше имя" required minlength="2"
+               aria-describedby="feedback-name-hint" autocomplete="name">
+        <div class="feedback-hint" id="feedback-name-hint" data-i18n="feedback_name_hint">Например: Александр</div>
+        <div class="feedback-error" id="feedback-name-error"></div>
+      </div>
+
+      <div class="feedback-field">
+        <label for="feedback-email" data-i18n="feedback_email_label">Почта</label>
+        <input type="email" id="feedback-email" name="email" data-i18n-placeholder="feedback_email_placeholder" placeholder="mail@example.com" required
+               aria-describedby="feedback-email-hint" autocomplete="email">
+        <div class="feedback-hint" id="feedback-email-hint" data-i18n="feedback_email_hint">Пример: chat.alexander.gpt@gmail.com</div>
+        <div class="feedback-error" id="feedback-email-error"></div>
+      </div>
+
+      <div class="feedback-field">
+        <label for="feedback-message" data-i18n="feedback_message_label">Сообщение</label>
+        <textarea id="feedback-message" name="message" data-i18n-placeholder="feedback_message_placeholder"
+                  placeholder="Опишите проблему или задайте вопрос…" rows="3" required minlength="5"
+                  aria-describedby="feedback-message-hint"></textarea>
+        <div class="feedback-hint" id="feedback-message-hint" data-i18n="feedback_message_hint">Кратко и по делу. Минимум 5 символов.</div>
+        <div class="feedback-error" id="feedback-message-error"></div>
+
+        <div class="feedback-helper-btns">
+          <button type="button" id="insert-example" class="modal-btn" data-i18n="insert_example_btn">Вставить пример</button>
+          <button type="button" id="faq-btn" class="modal-btn" data-i18n="ai_hint_btn">AI-подсказка</button>
+        </div>
+
+        <div id="mini-faq" style="display:none; margin-top:10px; text-align:left;">
+          <b data-i18n="faq_title">Частые вопросы:</b>
+          <ul style="font-size: 0.95em; margin:0; padding-left:1em;">
+            <li><b data-i18n="faq_logo_q">Как работает генератор логотипов?</b> — <span data-i18n="faq_logo_a">Просто опиши идею, и AI предложит вариант.</span></li>
+            <li><b data-i18n="faq_msg_q">Что писать в сообщении?</b> — <span data-i18n="faq_msg_a">Кратко расскажи задачу, AI сам подскажет решение.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="feedback-actions">
+        <button type="button" id="feedback-cancel" class="feedback-btn feedback-cancel" data-i18n="cancel_btn">Отмена</button>
+        <button type="button" id="feedback-clear" class="feedback-btn feedback-clear" data-i18n="clear_btn">Очистить</button>
+        <button type="submit" id="feedback-submit" class="feedback-btn feedback-submit" data-i18n="submit_btn">Отправить</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+    <div id="faq-modal" class="faq-modal" style="display:none;">
+  <div class="faq-modal-content">
+    <button id="faq-modal-close" class="faq-modal-close" aria-label="Закрыть">
+      <svg width="24" height="24" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="6" y1="6" x2="18" y2="18"/>
+        <line x1="18" y1="6" x2="6" y2="18"/>
+      </svg>
+    </button>
+
+    <div class="faq-header">
+      <span class="faq-icon">
+        <svg width="34" height="34" fill="none" viewBox="0 0 32 32" aria-hidden="true">
+          <circle cx="16" cy="16" r="14" fill="#23e6fe" opacity="0.22"/>
+          <circle cx="16" cy="16" r="11" fill="#fff"/>
+          <text x="16" y="22" font-size="16" fill="#2c7be5" font-weight="bold" text-anchor="middle">?</text>
+        </svg>
+      </span>
+      <span class="faq-title" data-i18n="faq_modal_title">FAQ / Поддержка</span>
+    </div>
+
+    <ul class="faq-list">
+      <li>
+        <b data-i18n="faq_logo_q">💡 Как работает генератор логотипов?</b>
+        <span data-i18n="faq_logo_a">— Просто опишите идею, AI всё сделает.</span>
+      </li>
+      <li>
+        <b data-i18n="faq_email_q">✉️ Не получили ответ?</b>
+        <span data-i18n="faq_email_a">— Напишите нам на <a href="mailto:info@local-ai-hub.website" class="faq-mail">info@local-ai-hub.website</a></span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<header style="position: relative;">
+  <!-- Обёртка логотипа и навигации -->
+  <div class="header-row">
+    <div class="header-inner">
+      
+     <!-- ✅ SVG-логотип с предотвращением CLS -->
+<div class="logo-wrapper" role="img" aria-label="Local AI Hub — Логотип">
+  <div class="logo-reserved">
+    <svg class="logo-svg" width="150" height="150" viewBox="0 0 100 100" fill="none"
+      xmlns="http://www.w3.org/2000/svg">
+      <circle cx="44" cy="44" r="36" stroke="#00cbe6" stroke-width="2" fill="none" />
+      <circle cx="44" cy="44" r="28" stroke="#2c7be5" stroke-width="3" fill="none" />
+      <path d="M20 52 Q44 24 68 52" stroke="#00cbe6" stroke-width="3" fill="none" stroke-linecap="round"
+        stroke-dasharray="6 7">
+        <animate attributeName="stroke-dashoffset" values="0;26" dur="1.6s" repeatCount="indefinite" />
+      </path>
+      <circle cx="44" cy="44" r="13" fill="#fff" />
+      <circle cx="44" cy="44" r="8" fill="#00cbe6" />
+      <circle cx="44" cy="44" r="5" fill="#2c7be5">
+        <animate attributeName="r" values="5;8;5" dur="1.25s" repeatCount="indefinite" />
+      </circle>
+      <circle cx="44" cy="16" r="3" fill="#00cbe6" />
+      <circle cx="44" cy="72" r="3" fill="#00cbe6" />
+      <circle cx="16" cy="44" r="3" fill="#00cbe6" />
+      <circle cx="72" cy="44" r="3" fill="#00cbe6" />
+      <g stroke="#fff" stroke-width="2">
+        <line x1="44" y1="16" x2="44" y2="31" />
+        <line x1="44" y1="57" x2="44" y2="72" />
+        <line x1="16" y1="44" x2="31" y2="44" />
+        <line x1="57" y1="44" x2="72" y2="44" />
+      </g>
+      <text x="50" y="85" text-anchor="middle" font-size="13" font-family="Arial,sans-serif" fill="#2c7be5"
+        font-weight="bold" letter-spacing="1.5">Local AI Hub</text>
+    </svg>
+  </div>
+</div>
+
+      <!-- ✅ Навигация -->
+      <div class="nav-wrapper">
+        <nav class="main-nav" role="navigation" aria-label="Главная навигация">
+          <a href="#services" class="hover-me ripple-btn" data-i18n="nav_home" aria-label="Услуги">
+            <span class="nav-icon">
+              <svg width="80" height="80" viewBox="0 0 80 80" role="img" aria-label="Услуги">
+                <circle cx="40" cy="40" r="20" fill="#2c7be5">
+                  <animate attributeName="r" values="20;28;20" dur="1.5s" repeatCount="indefinite" />
+                </circle>
+              </svg>
+            </span>
+            <span class="nav-label">Услуги</span>
+            <span class="nav-underline"></span>
+            <span class="nav-shine"></span>
+          </a>
+          <a href="#test" class="hover-me ripple-btn" data-i18n="nav_services" aria-label="Тестируй AI">
+            <span class="nav-icon">
+              <svg width="80" height="80" viewBox="0 0 80 80" role="img" aria-label="Тестируй AI">
+                <circle cx="40" cy="40" r="20" fill="#7851A9">
+                  <animate attributeName="r" values="20;28;20" dur="1.5s" repeatCount="indefinite" />
+                </circle>
+              </svg>
+            </span>
+            <span class="nav-label">Тестируй AI</span>
+            <span class="nav-underline"></span>
+            <span class="nav-shine"></span>
+          </a>
+          <a href="#generation" class="hover-me ripple-btn" data-i18n="nav_generation" aria-label="Сгенерируй">
+            <span class="nav-icon">
+              <svg width="80" height="80" viewBox="0 0 80 80" role="img" aria-label="Сгенерируй">
+                <circle cx="40" cy="40" r="20" fill="#50C878">
+                  <animate attributeName="r" values="20;28;20" dur="1.5s" repeatCount="indefinite" />
+                </circle>
+              </svg>
+            </span>
+            <span class="nav-label">Сгенерируй</span>
+            <span class="nav-underline"></span>
+            <span class="nav-shine"></span>
+          </a>
+          <a href="#about" class="hover-me ripple-btn" data-i18n="nav_about" aria-label="Выбирают нас">
+            <span class="nav-icon">
+              <svg width="80" height="80" viewBox="0 0 80 80" role="img" aria-label="Выбирают нас">
+                <circle cx="40" cy="40" r="20" fill="#FF47CA">
+                  <animate attributeName="r" values="20;28;20" dur="1.5s" repeatCount="indefinite" />
+                </circle>
+              </svg>
+            </span>
+            <span class="nav-label">Выбирают нас</span>
+            <span class="nav-underline"></span>
+            <span class="nav-shine"></span>
+          </a>
+          <a href="#contacts" class="hover-me ripple-btn" data-i18n="nav_contact" aria-label="Контакты">
+            <span class="nav-icon">
+              <svg width="80" height="80" viewBox="0 0 80 80" role="img" aria-label="Контакты">
+                <circle cx="40" cy="40" r="20" fill="#8B4513">
+                  <animate attributeName="r" values="20;28;20" dur="1.5s" repeatCount="indefinite" />
+                </circle>
+              </svg>
+            </span>
+            <span class="nav-label">Контакты</span>
+            <span class="nav-underline"></span>
+            <span class="nav-shine"></span>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </div>
+  
+  
+  <section class="hero fade-in-on-scroll" data-aos-once="true" aria-labelledby="main-hero-title" style="min-height: 100vh;">
+  <div class="theme-toggle-local">
+    <button id="theme-toggle" aria-label="Сменить тему">🌙</button>
+  </div>
+
+  <div class="hero-title-block">
+    <h1 id="main-hero-title" class="hero-title stagger-item" data-aos="fade-up" data-i18n="hero_title">
+      Local AI Hub: ИИ-решения для малого бизнеса
+    </h1>
+  </div>
+
+  <!-- 🎥 Видео -->
+  <canvas id="aiParticles" class="ai-bg-canvas"></canvas>
+  <video preload="none" id="hero-video" width="1920" height="1080" autoplay muted playsinline poster="/images/content/hero-poster.webp"
+    decoding="auto" fetchpriority="high" class="hero-video" style="object-fit: cover;">
+      <source src="media/ai-hero.mp4" type="video/mp4" />
+  </video>
+
+  <!-- ✅ Затемняющий слой -->
+  <div class="hero-dark-overlay"></div>
+
+  <!-- 👇 CTA -->
+  <div class="hero-overlay">
+    <div class="container">
+      <p class="hero-subtitle stagger-item" data-aos="fade-up" data-aos-delay="160" data-i18n="hero_subtitle">
+        Внедряйте искусственный интеллект без технических навыков
+      </p>
+      <a href="pages/start.html" class="btn btn-primary ripple-btn stagger-item" data-aos="fade-up"
+        data-aos-delay="320" data-i18n="hero_cta" aria-label="Начать бесплатно" target="_blank">
+        Начать бесплатно<span aria-hidden="true"></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</header>
+
+ <div id="progress-bar"></div>
+
+ <main id="main-content" role="main">
+      <section class="demo-section" id="portfolio">
+  <h2 class="demo-title fade-in-up" data-i18n="catalog_title">Демо-продукты и портфолио</h2>
+    <div class="demo-container">
+        <div class="demo-grid">
+    <div class="demo-card" data-id="1" tabindex="0" role="button" aria-label="AI-копирайтер для соцсетей">
+       <img src="images/content/post.webp" loading="lazy" decoding="auto" alt="AI-копирайтер" width="400" height="300" class="demo-img" aria-hidden="true" />
+      <div class="demo-info">
+        <h3 class="demo-name" data-i18n="ai_copywriter_title">AI-копирайтер для соцсетей</h3>
+        <p class="demo-desc" data-i18n="ai_copywriter_desc">Генерация постов и рекламных текстов за 10 секунд по заданной теме.</p>
+        <a href="https://local-ai-hub.website/pages/ai-solutions.html" target="_blank"><button class="demo-demo-btn ripple-btn" data-i18n="demo_btn" aria-label="Посмотреть демо копирайтера">Посмотреть демо
+          <span aria-hidden="true"></span>
+          </button>
+        </a>
+      </div>
+    </div>
+    <div class="demo-card" data-id="2" tabindex="0" role="button" aria-label="AI-генератор визуала">
+      <img src="images/content/copy.webp" loading="lazy" decoding="auto"  alt="AI-Визуал" class="demo-img" aria-hidden="true" />
+      <div class="demo-info">
+        <h3 class="demo-name" data-i18n="ai_visual_title">AI-генератор визуала</h3>
+        <p class="demo-desc" data-i18n="ai_visual_desc">Создание изображений для Instagram, VK, рекламы по ключевым словам.</p>
+        <a href="https://local-ai-hub.website/pages/ai-solutions.html" target="_blank"><button class="demo-demo-btn ripple-btn" data-i18n="demo_btn" aria-label="Посмотреть демо визуального генератора">Посмотреть демо
+          <span aria-hidden="true"></span>
+          </button>
+        </a>
+      </div>
+    </div>
+    <div class="demo-card" data-id="3" tabindex="0" role="button" aria-label="AI-аналитика продаж">
+      <img src="images/content/analytic.webp" loading="lazy" decoding="async" alt="AI-Аналитика" class="demo-img" aria-hidden="true" />
+      <div class="demo-info">
+        <h3 class="demo-name" data-i18n="ai_analytics_title">AI-аналитика продаж</h3>
+        <p class="demo-desc" data-i18n="ai_analytics_desc">Автоматическая обработка Excel-файлов, отчёты и инсайты для бизнеса.</p>
+        <a href="https://local-ai-hub.website/pages/ai-solutions.html" target="_blank"><button class="demo-demo-btn ripple-btn" data-i18n="demo_btn" aria-label="Посмотреть демо аналитики">Посмотреть демо
+          <span aria-hidden="true"></span>
+          </button>
+        </a>
+      </div>
+    </div>
+    <div class="demo-card" data-id="4" tabindex="0" role="button" aria-label="AI-чат-консультант">
+      <img src="images/content/bot.webp" loading="lazy" decoding="async"  alt="AI-Чат-бот" class="demo-img" aria-hidden="true" />
+      <div class="demo-info">
+        <h3 class="demo-name" data-i18n="ai_chat_title">AI-чат-консультант</h3>
+        <p class="demo-desc" data-i18n="ai_chat_desc">Персональный бот для поддержки клиентов прямо на сайте или в мессенджерах.</p>
+        <a href="https://local-ai-hub.website/pages/ai-solutions.html" target="_blank"><button class="demo-demo-btn ripple-btn" data-i18n="demo_btn" aria-label="Посмотреть демо чат-бота">Посмотреть демо
+          <span  aria-hidden="true"></span>
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+    </div>
+</section>
+
+<div class="demo-modal-overlay" id="demo-modal-overlay" style="display:none;"></div>
+<div class="demo-modal" id="demo-modal" style="display:none;">
+  <button class="demo-modal-close" id="demo-modal-close" aria-label="Закрыть">&times;</button>
+  <div class="demo-modal-content" id="demo-modal-content"></div>
+</div>
+
+<section class="about" data-aos="fade-left" data-aos-duration="1200" data-aos-once="true">
+  <div class="container">
+    <h2 data-aos="fade-up" data-i18n="about_title">О проекте</h2>
+    <p data-aos="fade-up" data-aos-delay="120" data-i18n="about_text">
+      <strong>Local AI Hub</strong> — это сервис для малого бизнеса, который помогает внедрять искусственный интеллект без сложных настроек и лишних затрат.<br>
+      Мы делаем AI доступным для всех, чтобы упростить процессы и повысить эффективность вашего бизнеса.<br>
+            ...Мы верим, что современные технологии должны работать на вас, а не наоборот.<br>
+      Подключайтесь к Local AI Hub — и позвольте искусственному интеллекту решать рутину, чтобы вы могли сосредоточиться на главном!
+    </p>
+  </div>
+</section>
+
+<section class="services" id="services" data-aos="fade-up" data-aos-once="true">
+  <h2 id='hero' class="section-title" data-aos="fade-up" data-i18n="services_title">Наши ключевые услуги</h2>
+  <div class="services__grid">
+    <a href="https://local-ai-hub.website/pages/solutions.html" target="_blank"><div class="service-card ripple-btn" tabindex="0" role="button" aria-label="AI-решения">
+      <div class="service-icon">
+        <img src="images/icons/ai-tools.svg" loading="lazy" decoding="async"  alt="AI-решения" aria-hidden="true">
+      </div>
+      <div class="service-content">
+        <h3 data-i18n="service_subtitle_one">AI-решения</h3>
+        <p data-i18n="service_text_one">Автоматизация задач, анализ продаж, чат-боты</p>
+      </div>
+    </div>
+    </a>
+    
+    <a href="https://local-ai-hub.website/pages/automation.html" target="_blank"><div class="service-card ripple-btn" tabindex="0" role="button" aria-label="Автоматизация">
+      <div class="service-icon">
+        <img src="images/icons/automation.svg" loading="lazy" decoding="async"  alt="Автоматизация" aria-hidden="true">
+      </div>
+      <div class="service-content">
+        <h3 data-i18n="service_subtitle_two">Автоматизация</h3>
+        <p data-i18n="service_text_two">Оптимизация логистики и обработки заказов</p>
+      </div>
+    </div>
+    </a>
+    
+    <a href="https://local-ai-hub.website/pages/training.html" target="_blank"><div class="service-card ripple-btn" tabindex="0" role="button" aria-label="Обучение">
+      <div class="service-icon">
+        <img src="images/icons/education.svg" loading="lazy" decoding="async"  alt="Обучение" aria-hidden="true">
+      </div>
+      <div class="service-content">
+        <h3 data-i18n="service_subtitle_three">Обучение</h3>
+        <p data-i18n="service_text_three">Пошаговые гайды, видео и инструкции</p>
+      </div>
+    </div>
+    </a>
+    
+  </div>
+</section>
+
+<div id='test' class="ai-test-block" data-aos="fade-up" data-aos-once="true">
+    <h2 data-aos="fade-up" data-i18n="ai_test_title">Тестируй AI прямо сейчас</h2>
+    <textarea id="ai-input" data-i18n-placeholder="ai_input_placeholder" placeholder="Вставьте текст для анализа..."
+              data-aos="fade-up"
+              data-aos-delay="120"></textarea>
+    <div class="ai-test-btns">
+        <button id="ai-compress" class="ripple-btn"
+                data-aos="fade-right" data-aos-delay="180"
+                aria-label="Сжать текст"
+                data-i18n="ai_btn_compress">
+            <span style="font-size:1.2em;">🔍</span> Сжать
+        </button>
+        <button id="ai-ideas" class="ripple-btn"
+                data-aos="fade-right" data-aos-delay="220"
+                aria-label="Генерировать идеи"
+                data-i18n="ai_btn_ideas">
+            <span style="font-size:1.2em;">💡</span> Идеи
+        </button>
+        <button id="ai-analyze" class="ripple-btn"
+                data-aos="fade-right" data-aos-delay="260"
+                aria-label="Анализировать текст"
+                data-i18n="ai_btn_analyze">
+            <span style="font-size:1.2em;">📊</span> Анализ
+        </button>
+    </div>
+    <div class="ai-test-result" id="ai-result">
+        <div class="ai-test-card">
+            <div class="ai-avatar-wrap">
+                <img src="images/icons/ai-bot.png" loading="lazy" decoding="async"  alt="AI-бот" class="ai-avatar-real" />
+                <div class="skeleton-avatar"></div>
+            </div>
+            <div class="ai-test-info">
+                <div class="ai-test-title real-text" data-i18n="ai_test_result_title">Тестируй AI прямо сейчас</div>
+                <div class="ai-test-desc real-text" data-i18n="ai_test_result_desc">
+                    Спроси что угодно — быстрые ответы от искусственного интеллекта для бизнеса и жизни.
+                </div>
+                <div class="skeleton-lines">
+                    <div class="skeleton-line"></div>
+                    <div class="skeleton-line short"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="ai-portfolio" id="ai-portfolio" data-aos="fade-up" data-aos-once="true">
+  <h2 id="generation" class="section-title" data-i18n="portfolio_title" data-aos="fade-up">Что уже можно?</h2>
+  <div class="portfolio-grid">
+
+    <div class="portfolio-card" data-aos="fade-up" data-aos-delay="60" tabindex="0" role="button" data-i18n-aria="portfolio_logo_aria">
+  <div class="portfolio-icon">
+    <div class="camera-scale">
+      <div class="camera" style="--hue:215" role="img" data-i18n-aria="icon_camera">
+        <div class="camera__shadow" aria-hidden="true"></div>
+        <div class="camera__front" aria-hidden="true"></div>
+        <div class="camera__contents" aria-hidden="true">
+          <div class="camera__red-light" aria-hidden="true"></div>
+          <div class="camera__lens-shadow" aria-hidden="true"></div>
+          <div class="camera__lens-back" aria-hidden="true"></div>
+          <div class="camera__lens-ring" aria-hidden="true">
+            <div class="camera__lens-ring-glare1" aria-hidden="true"></div>
+            <div class="camera__lens-ring-glare2" aria-hidden="true"></div>
+            <div class="camera__lens-ring-glare3" aria-hidden="true"></div>
+          </div>
+          <div class="camera__lens-inner" aria-hidden="true">
+            <div class="camera__lens-inner-glare1" aria-hidden="true"></div>
+            <div class="camera__lens-inner-glare2" aria-hidden="true"></div>
+            <div class="camera__lens-eye-shadow" aria-hidden="true"></div>
+            <div class="camera__lens-glare" aria-hidden="true"></div>
+            <div class="camera__lens-eye" aria-hidden="true">
+              <div class="camera__lens-eye-ring" aria-hidden="true"></div>
+              <div class="camera__lens-eye-inner-glare" aria-hidden="true"></div>
+              <div class="camera__lens-eye-center" aria-hidden="true">
+                <div class="camera__lens-eye-center-glare" aria-hidden="true"></div>
+              </div>
+              <div class="camera__lens-eye-glass-color" aria-hidden="true"></div>
+              <div class="camera__lens-eye-glare" aria-hidden="true"></div>
+              <div class="camera__lens-eye-glass" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="portfolio-info">
+    <h3 class="portfolio-text" data-i18n="portfolio_logo_title">Генерация логотипов</h3>
+    <p data-i18n="portfolio_logo_desc">AI создает логотипы быстро</p>
+    <button class="try-btn" data-modal="logo-gen" data-i18n="portfolio_try_btn_logo" data-i18n-aria="portfolio_try_aria_logo">
+      Попробовать
+    </button>
+  </div>
+</div>
+
+
+    <div class="portfolio-card" data-aos="fade-up" data-aos-delay="120" tabindex="0" role="button"
+      data-i18n-aria="portfolio_desc_aria">
+      <div class="portfolio-icon">
+        <div class="book" role="img" data-i18n-aria="icon_book">
+          <div class="inner" aria-hidden="true">
+            <div class="left"></div>
+            <div class="middle"></div>
+            <div class="right"></div>
+          </div>
+          <ul aria-hidden="true">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+      <div class="portfolio-info">
+        <h3 class="portfolio-text" data-i18n="portfolio_desc_title">Описание товаров</h3>
+        <p data-i18n="portfolio_desc_text">Уникальные AI-описания для каталога</p>
+        <button class="try-btn ripple-btn" data-modal="desc-gen" data-i18n="portfolio_try_btn_desc"
+          data-i18n-aria="portfolio_try_aria_desc">Попробовать
+          <span aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+  <div class="portfolio-card" data-aos="fade-up" data-aos-delay="180" tabindex="0" role="button" aria-label="Резюме / CV">
+      <div class="portfolio-icon">
+        <div class="speaker3d-scale">
+          <div class="speaker3d" role="img" aria-label="3D-динамик">
+            <div class="speaker-back" aria-hidden="true"></div>
+            <div class="speaker-bell" aria-hidden="true">
+              <div class="speaker-bell-ring" aria-hidden="true"></div>
+              <div class="speaker-bell-inner" aria-hidden="true"></div>
+              <div class="speaker-waves" aria-hidden="true">
+                <div class="speaker-wave speaker-wave1" aria-hidden="true"></div>
+                <div class="speaker-wave speaker-wave2" aria-hidden="true"></div>
+                <div class="speaker-wave speaker-wave3" aria-hidden="true"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="portfolio-info">
+  <h3 class="portfolio-text" data-i18n="portfolio_cv_title">Резюме / CV</h3>
+  <p data-i18n="portfolio_cv_text">Быстрая генерация резюме и писем</p>
+  <button class="try-btn ripple-btn"
+            data-modal="cv-gen"
+            data-i18n="portfolio_try_btn_cv"
+            data-i18n-aria="portfolio_try_aria_cv"
+            aria-label="Попробовать генерацию резюме">
+    Попробовать
+    <span aria-hidden="true"></span>
+  </button>
+</div>
+    </div>
+</div>
+  <div style="text-align: center; margin-top: 2.5rem; margin-bottom: -2.5rem;">
+  <button class="main-btn ripple-btn"
+        data-i18n="feedback_button"
+        data-i18n-aria="feedback_button_aria"
+        data-aos="zoom-in"
+        data-aos-delay="260"
+        data-aos-once="true"
+        aria-label="Обратная связь">
+    Обратная связь
+</button>
+</div>
+
+</section>
+
+  <div class="modal-overlay" id="modal-overlay" tabindex="-3">
+    <div class="modal-window" id="modal-content"></div>
+</div>
+
+<section id='about' class="why-choose fade-in-on-scroll" data-aos="fade-up" data-aos-once="true">
+  <h2 class="section-title" data-i18n="why_title" data-aos="fade-up">Почему выбирают нас</h2>
+  <div class="why-steps">
+    <div class="why-item ripple-btn" data-aos="fade-up" data-aos-delay="80" tabindex="0" role="button" aria-label="Готовые решения под ключ">
+      <a href="https://local-ai-hub.website/pages/solutions.html" target="_blank"><div class="why-circle">
+        <img src="images/icons/key.png" loading="lazy" decoding="async"  alt="Под ключ" aria-hidden="true" aria-label="Перейти на страницу с готовыми ИИ-решениями">
+      </div>
+      </a>
+      <p data-i18n="why_ready">Готовые решения под ключ</p>
+    </div>
+    <span class="arrow-line" data-aos="fade-right" data-aos-delay="120" aria-hidden="true">→</span>
+     
+    <div class="why-item ripple-btn" data-aos="fade-up" data-aos-delay="160" tabindex="0" role="button" aria-label="Не нужны технические знания">
+      <a href="https://local-ai-hub.website/pages/no-tech-skills.html" target="_blank"><div class="why-circle">
+        <img src="images/icons/no-code.png" loading="lazy" decoding="async"  alt="Без кода" aria-hidden="true" aria-label="Перейти на страницу без необходимости знания кода">
+      </div>
+      </a>
+      <p data-i18n="why_nocode">Не нужны технические знания</p>
+    </div>
+    <span class="arrow-line" data-aos="fade-right" data-aos-delay="200" aria-hidden="true">→</span>
+    
+    
+    <div class="why-item ripple-btn" data-aos="fade-up" data-aos-delay="240" tabindex="0" role="button" aria-label="Поддержка на родном языке">
+      <a href="https://local-ai-hub.website/pages/native-support.html" target="_blank"><div class="why-circle">
+        <img src="images/icons/support.png" loading="lazy" decoding="async"  alt="Поддержка" aria-hidden="true" aria-label="Перейти на страницу поддержки пользователей">
+      </div>
+      </a>
+      <p data-i18n="why_support">Поддержка на родном языке</p>
+    </div>
+  </div>
+  <div class="why-rating" data-aos="zoom-in-up" data-aos-delay="300" data-aos-once="true">
+  </div>
+</section>
+
+<section class="cta" data-aos="zoom-in" data-aos-once="true">
+  <div class="container cta-container">
+    <div class="cta-icon">
+      <img src="images/icons/lightning.svg" loading="lazy" decoding="async"  alt="Первые инструменты" aria-hidden="true">
+    </div>
+    <h2 data-i18n="cta_title">Готовы начать?</h2>
+    <p data-i18n="cta_text">Подключите первые инструменты уже сегодня</p>
+    <a href="https://local-ai-hub.website/pages/start.html" class="btn ripple-btn stagger-item aos-init aos-animate" data-i18n="cta_button" aria-label="Начать бесплатно" style="padding: 0.75rem 4rem;" target="_blank">
+      Начать бесплатно
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer" role="contentinfo">
+ <section id="contacts" class="contacts-section">
+  <div class="contacts-wrapper">
+    <h2 class="contacts-title" data-i18n="contacts_title" data-aos="fade-up" data-aos-once="true">Контакты</h2>
+    <div class="contacts-content" data-aos="fade-up" data-aos-delay="100" data-aos-once="true">
+      <div class="contacts-info">
+        <div class="contacts-row">
+          <span class="contacts-label" data-i18n="contacts_email">E-mail:</span>
+          <a href="mailto:info@local-ai-hub.website" class="contacts-link" aria-label="E-mail: info@local-ai-hub.website">info@local-ai-hub.website</a>
+        </div>
+        <div class="contacts-row">
+          <span class="contacts-label" data-i18n="contacts_phone">Телефон:</span>
+          <a href="tel:+14165550183" class="contacts-link" aria-label="Телефон: +1 (416) 555-0183">+1 (416) 555-0183</a>
+        </div>
+        <div class="contacts-row">
+          <span class="contacts-label" data-i18n="contacts_address">Адрес:</span>
+          <span class="contacts-text">12 Innovation Avenue, Suite 40  
+                                     Toronto, ON M5G 1X5  
+                                     Canada </span>
+        </div>
+      </div>
+      <form class="contacts-form" data-aos="fade-left" data-aos-delay="220" data-aos-once="true">
+          <input type="text" name="name" required data-i18n-placeholder="contacts_name_placeholder"
+            data-i18n-aria="contacts_name_aria" placeholder="Ваше имя" aria-label="Ваше имя">
+          
+          <input type="email" name="email" required data-i18n-placeholder="contacts_email_placeholder"
+            data-i18n-aria="contacts_email_aria" placeholder="Ваш e-mail" aria-label="Ваш e-mail">
+          
+          <textarea name="message" required data-i18n-placeholder="contacts_message_placeholder"
+            data-i18n-aria="contacts_message_aria" placeholder="Ваше сообщение" aria-label="Ваше сообщение"></textarea>
+          
+          <button type="submit" class="contacts-btn ripple-btn" data-i18n="contacts_btn" data-i18n-aria="contacts_btn_aria"
+            aria-label="Отправить сообщение">Отправить
+            <span aria-hidden="true"></span>
+          </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+  <button id="scrollTopBtn" class="scroll-top-btn ripple-btn visible" aria-label="Прокрутить вверх" tabindex="0">
+  <svg width="30" height="30" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12 4l-8 8h5v8h6v-8h5l-8-8z"/>
+  </svg>
+</button>
+  
+</footer>
+
+<div id="ai-chat-widget" class="chat-widget">
+  <div id="chat-header-button" class="chat-header"
+       data-i18n="chat_header"
+       data-i18n-aria="chat_header_aria"
+       aria-label="AI-Консультант">💬 AI-Консультант</div>
+  <div class="chat-body" id="chat-body">
+    <div id="chat-box"></div>
+
+    <div id="ai-chat-response" style="display:none;">
+      <div class="skeleton skeleton-text"></div>
+      <div class="skeleton skeleton-text" style="width:62%"></div>
+      <div class="skeleton skeleton-text" style="width:81%"></div>
+    </div>
+    <div class="chat-controls">
+      <input
+        id="chat-input"
+        type="text"
+        data-i18n-placeholder="chat_input_placeholder"
+        data-i18n-aria="chat_input_aria"
+        placeholder="Ваш вопрос..."
+        autocomplete="off"
+        aria-label="Ваш вопрос"
+      >
+      <button
+        id="ai-send-btn"
+        class="ripple-btn"
+        data-i18n-aria="chat_send_btn_aria"
+        aria-label="Отправить сообщение">
+        <span class="send-icon">📩</span>
+        <span class="spinner" style="display:none"></span>
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc" style="display:none;">
+  <div class="modal__overlay"></div>
+  <div class="modal__content" tabindex="-1">
+    <button class="modal__close" aria-label="Закрыть">&times;</button>
+    <h2 id="modal-title">Создание логотипа</h2>
+    <p id="modal-desc">Пожалуйста, заполните форму ниже:</p>
+    <form id="modal-form" autocomplete="off" novalidate>
+      <div>
+        <input type="text" name="brand" placeholder="Название компании" required />
+        <div class="input-hint">Например: NovaTech, AI Cafe</div>
+        <div class="input-error" id="error-brand" aria-live="polite">Введите минимум 2 символа</div>
+      </div>
+      <div>
+        <select name="style" required>
+          <option value="">Выберите стиль</option>
+          <option value="modern">Современный</option>
+          <option value="minimal">Минимализм</option>
+          <option value="classic">Классика</option>
+          <option value="fun">Яркий / Весёлый</option>
+        </select>
+        <div class="input-hint">Выберите визуальный стиль логотипа</div>
+        <div class="input-error" id="error-style" aria-live="polite"></div>
+      </div>
+      <div>
+        <textarea name="preferences" placeholder="Пожелания к логотипу (необязательно)" rows="2"></textarea>
+        <div class="input-hint">Цвета, иконки, элементы, которые хотелось бы видеть</div>
+        <div class="input-error" id="error-preferences" aria-live="polite"></div>
+      </div>
+      <div style="margin-top:1em;display:flex;gap:1em;justify-content:center;">
+        <button type="button" class="modal-btn secondary close-modal">Отмена</button>
+        <button type="reset" class="modal-btn secondary">Очистить</button>
+        <button type="submit" class="modal-btn">Сгенерировать</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<p>
+        <a class="css-code" href="https://jigsaw.w3.org/css-validator/check/referer" aria-label="Проверить CSS на валидность через W3C">
+            <img style="border:0;width:50px;height:28px"
+                src="https://jigsaw.w3.org/css-validator/images/vcss" loading="lazy" decoding="async" 
+                alt="Правильный CSS!" aria-hidden="true">
+            <img style="border:0;width:50px;height:28px"
+            src="https://jigsaw.w3.org/css-validator/images/vcss-blue" loading="lazy" decoding="async" 
+            alt="Правильный CSS3!" aria-hidden="true">
+        </a>
+    </p>
+    
+<!-- 🌐 Внешние библиотеки CDN (анимации, эффекты) -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer crossorigin="anonymous"></script>
+
+
+
+<!-- ⚙️ Основная логика (отложенная загрузка) -->
+<script src="js/app.min.js" defer></script>
+<script src="/js/aiParticles.min.js" defer></script>
+<script src="js/main.min.js?v=1.2" defer></script>
+<script src="/js/aos.min.js" defer></script>
+
+<!-- 🌍 Языковые настройки (загружается раньше, т.к. влияет на все надписи) -->
+<script src="lang/language.js" defer></script>
+
+<!-- 🧠 Ключевая логика интерфейса и поведения (отложенно) -->
+<script type="module" src="js/config.min.js" defer></script>
+<script type="module" src="js/modal.min.js" defer></script>
+<script type="module" src="js/chat-widget.min.js" defer></script>
+<script type="module" src="js/feedback-modal.min.js" defer></script>
+<script type="module" src="js/hero-video-loader.min.js" defer></script>
+<script type="module" src="js/demo.min.js" defer></script>
+<script type="module" src="js/header.min.js" defer></script>
+<script src="js/test-ai.min.js" defer></script>
+<script type="module" src="js/skeleton.min.js" defer></script>
+<script type="module" src="js/footer.min.js" defer></script>
+<script type="module" src="js/preloader.min.js" defer></script>
+<script type="module" src="js/particles.min.js" defer></script>
+
+<!-- 🌐 Загрузка переводов ошибок через lazy fetch -->
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+    fetch('/lang/lang-error.json')
+      .then(res => res.json())
+      .then(errorTranslations => {
+        const lang = window.currentLang || 'en';
+        const fallback = window.fallbackLang || 'en';
+        const errorText = errorTranslations.api_proxy_error?.[lang] ||
+                          errorTranslations.api_proxy_error?.[fallback] ||
+                          '<span style="color:#c00">API Error:</span> Unknown connection error.';
+        window.translations = window.translations || {};
+        window.translations["chat_api_proxy_error"] = errorText;
+      });
+
+    if (window.AOS) AOS.init({ duration: 700, once: true });
+    if (typeof initCustomAnimations === 'function') {
+      requestIdleCallback(() => initCustomAnimations());
+    }
+    if (typeof initThemeToggle === 'function') {
+      initThemeToggle();
+    }
+    if (typeof initI18n === 'function') {
+      initI18n();
+    }
+    if (typeof particlesJS !== 'undefined') {
+      particlesJS.load('aiParticles', '/js/particles-config.json');
+    }
+  });
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "Local AI Hub — AI-решения для бизнеса",
+  "description": "Интро-видео Local AI Hub для малого бизнеса с визуализацией ИИ-процессов.",
+  "thumbnailUrl": "https://local-ai-hub.website/images/content/hero-poster.webp",
+  "uploadDate": "2025-07-25",
+  "contentUrl": "https://local-ai-hub.website/media/ai-hero.mp4",
+  "embedUrl": "https://local-ai-hub.website/#video"
+}
+</script>
+
+
+</body>
+</html>

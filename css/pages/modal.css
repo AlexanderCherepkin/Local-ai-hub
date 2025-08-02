@@ -1,0 +1,279 @@
+
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-window {
+  background: #fff;
+  padding: 2rem;
+  max-width: 500px;
+  width: 90%;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+  position: relative;
+  animation: fadeIn 0.3s ease;
+  text-align: center;
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #333;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.95);}
+  to {opacity: 1; transform: scale(1);}
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-window {
+  background: var(--card-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  padding: 2rem 2rem 2.5rem;
+  max-width: 480px;
+  width: 90%;
+  border-radius: 1.5rem;
+  position: relative;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+  color: var(--text-color);
+  text-align: center;
+}
+.modal-window h3 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+.modal-window p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+.modal-cta-btn {
+  display: inline-block;
+  margin-top: 1.8rem;
+  padding: 0.8rem 1.8rem;
+  background: var(--accent-color);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+  transition: background 0.3s ease;
+}
+.modal-cta-btn:hover {
+  background: #059669;
+}
+.modal-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
+  font-size: 1.6rem;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+:root {
+  --modal-bg: rgba(0, 0, 0, 0.5);
+  --modal-box-bg-light: rgba(255, 255, 255, 0.85);
+  --modal-box-bg-dark: rgba(30, 30, 30, 0.85);
+  --modal-blur: blur(16px);
+  --modal-radius: 1rem;
+  --modal-transition: 0.3s ease;
+  --modal-z: 1000;
+}
+
+/* Обёртка модалки */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--modal-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--modal-z);
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* Затемняющий слой (можно кликнуть для закрытия) */
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Блок с содержимым */
+.modal-box {
+  position: relative;
+  background: var(--modal-box-bg-light);
+  border-radius: var(--modal-radius);
+  padding: 2rem;
+  max-width: 600px;
+  width: 90%;
+  z-index: var(--modal-z + 1);
+  backdrop-filter: var(--modal-blur);
+  -webkit-backdrop-filter: var(--modal-blur);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  animation: slideUp 0.35s ease forwards;
+  color: #222;
+}
+
+body[data-theme="dark"] .modal-box {
+  background: var(--modal-box-bg-dark);
+  color: #f2f2f2;
+}
+
+/* Заголовок */
+.modal-box h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+/* Список FAQ */
+.modal-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.modal-list li {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Кнопка закрытия */
+.modal-close {
+  margin-top: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--accent, #00cbe6);
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.modal-close:hover {
+  background-color: #00b0cb;
+}
+
+/* Форма */
+.modal-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal-box input,
+.modal-box textarea {
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  width: 100%;
+  resize: vertical;
+}
+
+.modal-box textarea {
+  min-height: 120px;
+}
+
+.modal-box button[type="submit"] {
+  background-color: var(--accent, #00cbe6);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.modal-box button[type="submit"]:hover {
+  background-color: #00a6bf;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Адаптивность */
+@media (max-width: 480px) {
+  .modal-box {
+    padding: 1.5rem;
+  }
+
+  .modal-box h2 {
+    font-size: 1.4rem;
+  }
+}
+
+.chat-error {
+  margin: 1rem 0;
+  max-height: 300px;
+  overflow: auto;
+}
+
+.chat-log {
+  white-space: pre-wrap;
+  background: #f0f0f0;
+  color: #333;
+  border-left: 3px solid #ff6666;
+}

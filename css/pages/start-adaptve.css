@@ -1,0 +1,15 @@
+@media (max-width: 768px) {
+  .steps-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .how-content {
+    flex-direction: column;
+  }
+
+  .steps-video {
+    order: -1;
+  }
+}
+

@@ -1,0 +1,446 @@
+:root {
+    --nav-bg: #f5f5f5;
+    --nav-link: #e5e7eb;
+    --nav-link-active: #2c7be5;
+    --accent: #2c7be5;
+    --nav-label: #e5e7eb;
+    --nav-underline: linear-gradient(90deg, #2c7be5 0%, #00b894 100%);
+}
+
+/* /css/pages/start.css */
+
+  header.header-row {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeSlideIn 0.8s ease-out forwards;
+    animation-delay: 0.4s;
+  }
+
+  @keyframes fadeSlideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+.automation-intro {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInIntro 0.6s ease-out forwards;
+  animation-delay: 1s; /* чуть позже шапки */
+}
+
+@keyframes fadeInIntro {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes flipPage {
+  0%   { transform: rotateX(0deg); opacity: 1; }
+  35%  { transform: rotateX(-90deg); opacity: 0; }
+  65%  { transform: rotateX(90deg); opacity: 0; }
+  100% { transform: rotateX(0deg); opacity: 1; }
+}
+
+.start-info {
+  padding: 3rem 2rem;
+  background-color: #f0f9ff;
+  border-radius: 1rem;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.35);
+  margin: 2rem auto;
+  max-width: 1050px;
+  text-align: center;
+  transform-origin: top center;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transition: all 0.4s ease;
+}
+
+.succes-title,
+.succes-subtitle {
+    text-align: center;
+}
+
+.succes-subtitle {
+    margin-bottom: 2rem;
+}
+.start-info h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+.start-info p {
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.how-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  min-height: 1px;
+  animation: gustySway 12s cubic-bezier(0.42, 0, 0.58, 1) infinite;   
+}
+
+
+
+/* --- Блок "Как это работает" --- */
+.how-it-works {
+  text-align: center;
+  padding: 4rem 1.5rem;
+  background: linear-gradient(to bottom, #ffffff, #f9fafb);
+  
+}
+
+.how-it-works h2 {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 2rem;
+}
+
+.steps-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  /*margin-top: 4rem;*/
+  position: relative; /* если нужен контроль слоя */
+  z-index: auto;      /* или просто убрать вовсе */
+}
+
+.steps-title {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.step-card {
+  min-width: 260px;
+  min-height: 200px;
+  background: #f9fafe;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.step-card:hover {
+  animation-play-state: paused;
+}
+
+
+
+.step-card:hover {
+  transform: translateY(-5px);
+}
+
+.step-icon {
+  margin-bottom: 1rem;
+}
+
+.step-icon svg {
+  width: 64px;
+  height: 64px;
+}
+
+.btn-primary {
+     background-color: var(--color-secondary-dark);
+     border-radius: 1rem;
+     color: #fff;
+}
+
+
+/* ====================================== */
+
+.video-wrapper {
+  position: relative;
+  flex: 1 1 320px;       /* растягивается адаптивно */
+  max-width: 720px;      /* разумная ширина */
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 25px;
+}
+
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.play-icon {
+  width: 64px;
+  height: 64px;
+}
+
+.lang-switch {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.lang-switch button {
+  position: relative;
+  margin: 4px;
+  padding: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.lang-switch button::after {
+  content: attr(data-flag);
+  position: absolute;
+  bottom: 130%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 8px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  font-size: 12px;
+  white-space: nowrap;
+  border-radius: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 100;
+}
+
+.lang-switch button:hover::after {
+  opacity: 1;
+}
+
+.lang-switch button:hover {
+  transform: scale(1.1);
+}
+
+.lang-switch button img {
+  display: block;
+  width: 30px;
+  height: auto;
+}
+
+/* ======= HEADER STRUCTURE ======= */
+header {
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f5f5f5; 
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+  position: relative;
+}
+
+/* ======= LOGO & ROW WRAPPING ======= */
+.header-row {
+  display: flex;
+  align-items: center; /* Главное! */
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.logo svg {
+  display: block;
+  height: 64px;
+  width: auto;
+}
+
+/* ======= NAVIGATION ======= */
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2rem;
+}
+
+.main-nav a {
+  display: inline-block;
+  padding: 0.6em 1.2em;
+  min-height: 2.6em;
+  line-height: 1.4;
+  font-size: 1.15rem;
+  color: var(--text);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.2s ease, color 0.2s ease;
+  font-weight: 600;
+}
+
+.main-nav a:hover {
+  background-color: rgba(79, 70, 229, 0.1); /* фиолетовый hover */
+  color: #4F46E5;
+  transition: background 0.5s ease, color 0.2s ease;
+  transform: scale(1.1);
+}
+
+/* CTA Link */
+.nav-cta {
+  font-weight: 600;
+  background-color: #4F46E5;
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.6em 1.4em;
+}
+
+.nav-cta:hover {
+  background-color: #4338ca;
+  color: #fff;
+}
+
+ /*Анимация покачивания флажков стран */
+@keyframes flagWave {
+  0%   { transform: perspective(80px) rotateZ(0deg) skewX(0deg); }
+  20%  { transform: perspective(80px) rotateZ(2deg) skewX(4deg); }
+  40%  { transform: perspective(80px) rotateZ(-2deg) skewX(-4deg); }
+  60%  { transform: perspective(80px) rotateZ(1.2deg) skewX(2deg); }
+  80%  { transform: perspective(80px) rotateZ(-1.2deg) skewX(-2deg); }
+  100% { transform: perspective(80px) rotateZ(0deg) skewX(0deg); }
+}
+
+.lang-switch img {
+  width: 30px;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+  animation: flagWave 2.8s ease-in-out infinite;
+  transform-origin: left center;
+  will-change: transform;
+}
+
+.lang-switch img:nth-child(odd) {
+  animation-delay: 0.2s;
+}
+
+.lang-switch img:nth-child(even) {
+  animation-delay: 0.5s;
+}
+
+
+/* Анимация покачивания блока */
+@keyframes gustySway {
+  0%   { transform: rotateZ(0deg) translateX(0); }
+  5%   { transform: rotateZ(0.5deg) translateX(0.2px); }
+  10%  { transform: rotateZ(-0.4deg) translateX(-0.2px); }
+  15%  { transform: rotateZ(0.6deg) translateX(0.4px); }
+  20%  { transform: rotateZ(-0.5deg) translateX(-0.4px); }
+  25%  { transform: rotateZ(0.3deg); }
+  30%  { transform: rotateZ(0deg); }
+
+  45%  { transform: rotateZ(1deg) translateX(1px); }
+  50%  { transform: rotateZ(-0.6deg) translateX(-0.5px); }
+  55%  { transform: rotateZ(0.4deg); }
+  60%  { transform: rotateZ(0deg); }
+
+  75%  { transform: rotateZ(-0.8deg); }
+  80%  { transform: rotateZ(0.5deg); }
+  85%  { transform: rotateZ(0deg); }
+
+  100% { transform: rotateZ(0deg); }
+}
+
+
+.how-content:hover {
+  animation-play-state: paused;
+}
+main {
+  min-height: 100vh;
+  contain: layout paint;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+#previewVideo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  contain: layout paint;
+}
+
+#header-container,
+#footer-container {
+  display: block;
+  min-height: 10px;
+  position: relative;
+}
+
+#footer-container {
+  height: 1px;
+}
+
+[data-aos] {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  will-change: opacity, transform;
+}
+
+.content-section {
+  min-height: 80vh;
+}
+
+.fade-in-on-scroll {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInSection 0.8s ease forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeInSection {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.start-info {
+     margin-bottom: 3rem;
+}
+
+
+
+
+
+
+
+
+.footer-start {
+    background-color: var(--cta-bg);
+    color: #fff;
+    text-align: center;
+}
+

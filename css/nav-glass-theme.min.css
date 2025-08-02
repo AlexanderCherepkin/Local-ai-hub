@@ -1,0 +1,28 @@
+/* ========================================================= */
+/* css/nav-glass-theme.css */
+/* Этот файл должен быть подключен ПОСЛЕДНИМ в HTML для приоритета */
+/* ========================================================= */
+
+/* --- ПЕРЕМЕННЫЕ ДЛЯ СТЕКЛА --- */
+:root{--nav-bg-glass-light:rgba(255,255,255,0.2);--nav-bg-glass-dark:rgba(122,133,158,0.1);--nav-border-glass-light:rgba(34,139,34,0.1);--nav-border-glass-dark:rgba(144,238,144,0.15);--nav-shadow-glass-light:rgba(0,128,0,0.1);--nav-shadow-glass-dark:rgba(0,128,0,0.3);--nav-text-glass-light:#004d00;--nav-text-glass-dark:#C2FFC2;--accent-light-theme:#008000;--accent-dark-theme:#3CB371}
+.nav-glass{background:rgba(255,255,255,0.05);backdrop-filter:blur(12px);border-radius:16px;padding:1rem 2rem;transition:background .3s ease,transform .3s ease}
+.nav-glass:hover{background:rgba(255,255,255,0.1);transform:scale(1.02)}
+.nav-glass a{color:#fff;text-decoration:none;font-weight:600;margin:0 1rem}
+.nav-glass a:hover{text-decoration:underline}
+[data-theme=dark]{--nav-bg:rgba(20,50,20,0.7);--button-default-bg:var(--nav-bg-glass-dark);--button-default-border:var(--nav-border-glass-dark);--button-default-shadow:var(--nav-shadow-glass-dark);--button-text-color:var(--nav-text-glass-dark);--button-hover-bg:rgba(144,238,144,0.15);--button-hover-border:rgba(144,238,144,0.3);--button-accent-color:var(--accent-dark-theme)}
+[data-theme=light]{--nav-bg:rgba(220,255,220,0.8);--button-default-bg:var(--nav-bg-glass-light);--button-default-border:var(--nav-border-glass-light);--button-default-shadow:var(--nav-shadow-glass-light);--button-text-color:var(--nav-text-glass-light);--button-hover-bg:rgba(0,100,0,0.08);--button-hover-border:rgba(0,100,0,0.2);--button-accent-color:var(--accent-light-theme)}
+.header-row{background:var(--nav-bg);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 4px 20px var(--nav-shadow-glass-dark);border-bottom:1px solid var(--nav-border-glass-dark)}
+[data-theme=light] .header-row{box-shadow:0 4px 20px var(--nav-shadow-glass-light);border-bottom:1px solid var(--nav-border-glass-light)}
+.hover-me{background-color:var(--button-default-bg);border:1.5px solid var(--button-default-border);border-left-color:rgba(255,255,255,0.4);border-top-color:rgba(255,255,255,0.3);box-shadow:0 4px 20px var(--nav-shadow-glass-dark),0 0 0 1px rgba(255,255,255,0.05) inset,5px 5px 15px rgba(0,0,0,0.2);backdrop-filter:blur(15px) saturate(200%) contrast(150%);-webkit-backdrop-filter:blur(15px) saturate(200%) contrast(150%);border-radius:15px 5px 20px 8px/8px 25px 5px 18px;transition:background-color .3s cubic-bezier(.4,2,.3,1),box-shadow .3s cubic-bezier(.4,2,.3,1),transform .22s cubic-bezier(.4,2,.3,1),border-color .3s,border-radius .3s,color .3s;overflow:hidden;position:relative;z-index:1;display:flex;align-items:center;gap:.5rem;text-decoration:none;cursor:pointer;min-width:6rem;padding:.9rem 1.6rem;outline:none;clip-path:polygon(0 20%,15% 0,100% 0,85% 20%,100% 80%,90% 100%,10% 100%,0 80%)}
+.hover-me:hover,.hover-me:focus-visible{background-color:var(--button-hover-bg);border-color:var(--button-hover-border);box-shadow:0 12px 40px var(--button-default-shadow),0 4px 15px rgba(0,0,0,0.3),0 0 0 2px rgba(255,255,255,0.1) inset,7px 7px 20px rgba(0,0,0,0.3);transform:translateY(-3px) scale(1.02);outline:none}
+.nav-label{color:var(--button-text-color);font-family:var(--font-main,'Segoe UI','Montserrat',sans-serif);font-size:1.1rem;font-weight:600;letter-spacing:.01em;position:relative;z-index:2;transition:color .3s,transform .25s cubic-bezier(.175,5,.32,6),filter .25s;pointer-events:none;will-change:transform,filter}
+.hover-me:hover .nav-label,.hover-me:focus-visible .nav-label{color:var(--button-accent-color);transform:translateY(-15px) scale(1.2);filter:blur(.5px) contrast(150%) brightness(120%)}
+.nav-icon{width:1.6rem;height:1.6rem;display:flex;align-items:center;opacity:.77;filter:drop-shadow(0 1px 2px rgba(44,123,229,.16));transition:opacity .3s,filter .3s}
+.hover-me:hover .nav-icon,.hover-me:focus-visible .nav-icon{opacity:1;filter:drop-shadow(0 0 8px var(--button-accent-color))}
+.nav-icon svg circle{transition:all .3s ease;stroke:var(--button-text-color);fill:transparent}
+.hover-me:hover .nav-icon svg circle,.hover-me:focus-visible .nav-icon svg circle{stroke:var(--button-accent-color)}
+.nav-underline,.nav-shine{display:none!important}
+.hover-me.cracked{animation:crack-effect .3s ease-out;box-shadow:0 0 15px rgba(255,0,0,.3),inset 0 0 5px rgba(255,0,0,.2)}
+@keyframes crack-effect{0%{transform:scale(1.02) translateY(-3px) rotate(0deg);opacity:1}25%{transform:scale(1.01) translateY(-2px) rotate(1deg);opacity:.98;filter:brightness(.9) contrast(1.1)}50%{transform:scale(1.03) translateY(-4px) rotate(-1deg);opacity:.95;filter:brightness(.8) contrast(1.2)}75%{transform:scale(1.01) translateY(-2px) rotate(.5deg);opacity:.98;filter:brightness(.95) contrast(1.05)}100%{transform:scale(1.02) translateY(-3px) rotate(0deg);opacity:1;filter:none}}
+.hover-me:not(.cracked):active{transform:scale(.98) translateY(0);box-shadow:inset 0 2px 8px rgba(0,0,0,0.15)}
+section[id],div[id]{scroll-margin-top:1000px;scroll-padding-top:1000px}

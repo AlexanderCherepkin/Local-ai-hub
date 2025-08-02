@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Offline — Local AI Hub</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    h1 {
+      
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      min-height: 2.5em;
+      transition: min-height 0.2s ease;
+    }
+
+    p {
+      font-size: 1.2rem;
+      min-height: 4.5em;
+      transition: min-height 0.2s ease;
+    }
+
+    .logo {
+      max-width: 120px;
+      margin: 0 auto 1rem;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #111;
+        color: #ddd;
+      }
+    }
+  </style>
+</head>
+<body>
+  <img src="/favicon/icon-192.png" alt="Logo" class="logo" />
+  <h1 id="offline-title">You are offline</h1>
+  <p id="offline-text">This page is not available while you're offline.<br>Please check your internet connection and try again.</p>
+
+  <script>
+    // Автоматическая перезагрузка при возвращении в онлайн
+    window.addEventListener('online', () => {
+      location.reload();
+    });
+
+    // Мультиязычное сообщение
+    const lang = new URLSearchParams(location.search).get('lang') || navigator.language.slice(0, 2) || 'en';
+    const messages = {
+      en: {
+        title: 'You are offline',
+        text: "This page is not available while you're offline.<br>Please check your internet connection and try again."
+      },
+      ru: {
+        title: 'Вы не в сети',
+        text: "Эта страница недоступна без подключения к интернету.<br>Проверьте соединение и попробуйте ещё раз."
+      },
+      es: {
+        title: 'Estás desconectado',
+        text: "Esta página no está disponible sin conexión.<br>Comprueba tu conexión a Internet e inténtalo de nuevo."
+      },
+      de: {
+        title: 'Sie sind offline',
+        text: "Diese Seite ist im Offline-Modus nicht verfügbar.<br>Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut."
+      }
+      // Добавь другие языки при необходимости
+    };
+
+    const msg = messages[lang] || messages['en'];
+    document.getElementById('offline-title').innerHTML = msg.title;
+    document.getElementById('offline-text').innerHTML = msg.text;
+  </script>
+</body>
+</html>

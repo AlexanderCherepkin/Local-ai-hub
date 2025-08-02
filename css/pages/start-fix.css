@@ -1,0 +1,184 @@
+/* ======= START PAGE STRUCTURE FIX ======= */
+body {
+   font-family: 'Manrope', sans-serif;
+}
+/* Заголовки и описания в шаговых карточках */
+.step-title {
+  min-height: 2.4em;
+  line-height: 1.4;
+  transition: min-height 0.3s ease;
+}
+
+.step-card p {
+  min-height: 3.5em;
+  line-height: 1.6;
+  transition: min-height 0.3s ease;
+}
+
+/* Кнопки "Начать использовать" */
+.step-card .btn-primary {
+  min-height: 2.6em;
+  padding: 0.6em 1.4em;
+  white-space: normal;
+}
+
+/* Заголовок h1, h2 и интро-текст */
+main h1[data-i18n="start.title"],
+main h2[data-i18n="start.block.title"],
+main h2[data-i18n="start.how_title"] {
+  min-height: 1em;
+  line-height: 1.3;
+  transition: min-height 0.3s ease;
+}
+
+main p[data-i18n="start.block.desc"],
+main p[data-i18n="start.intro"] {
+  min-height: 3em;
+  line-height: 1.6;
+  transition: min-height 0.3s ease;
+}
+
+/* ======= VIDEO PREVIEW FIX ======= */
+.video-wrapper {
+  position: relative;
+  max-width: 640px;
+  margin: 2rem auto;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.video-wrapper video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.video-overlay:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.play-icon {
+  width: 64px;
+  height: 64px;
+}
+
+/* ======= АДАПТИВНЫЕ ДОРАБОТКИ ======= */
+@media (max-width: 768px) {
+  .step-title {
+    font-size: 1.1rem;
+    min-height: auto;
+  }
+
+  .step-card p {
+    min-height: auto;
+  }
+
+  .video-wrapper {
+    margin: 1.5rem 1rem;
+  }
+}
+
+.lang-switch img {
+  display: block; /* <-- критично */
+  width: 16px;
+  height: 12px;
+  max-width: none;
+  max-height: none;
+  aspect-ratio: 4 / 3; /* гарантирует пропорции */
+  object-fit: cover;
+  border-radius: 2px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+  animation: flagWave 2.8s ease-in-out infinite;
+  transform-origin: left center;
+  will-change: transform;
+}
+
+img {
+  aspect-ratio: unset;
+  max-width: unset;
+  height: unset;
+}
+
+/* CLS-безопасный вариант для флагов */
+.lang-switch img {
+  display: block;
+  width: 16px;
+  height: 12px;
+  max-width: none;
+  max-height: none;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 2px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+  animation: flagWave 2.8s ease-in-out infinite;
+  transform-origin: left center;
+  will-change: transform;
+}
+
+
+main {
+  display: block;
+  min-height: 100vh;
+  contain: layout paint style;
+  overflow-anchor: none;
+  position: relative;
+}
+
+/* Стабилизируем первый блок */
+main > section:first-of-type {
+  min-height: 520px;
+  contain: layout paint;
+}
+
+#flipBlock {
+  min-height: 160px;
+}
+
+
+.succes-title {
+  min-height: 3.5rem;
+}
+
+.succes-subtitle {
+  min-height: 6.5rem;
+}
+
+[data-aos],
+.fade-in-on-scroll {
+  min-height: 200px;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  will-change: opacity, transform;
+}
+
+/* Зарезервировать подставляемые из JS блоки */
+#header-container,
+#footer-container {
+  min-height: 80px;
+  display: block;
+  overflow-anchor: none;
+}
+
+section.how-content {
+  min-height: 300px;
+}
+
+.how-content img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
+
